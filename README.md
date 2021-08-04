@@ -104,3 +104,5 @@ Customize
    f02 함수는 Class의 Member Variable로써 만들어질 instance객체안에 생성되는 함수(메모리 낭비)
 ## f03 Function   
    f03 함수는 화살표함수로써 함수 자체의 this바인딩을 갖지 않는다.따라서 '_ this' 변수안에 this를 참조  
+## f04 Function
+   f04 함수는 static함수로써 MyClass함수 객체안에 바인딩되어있는걸 볼 수 있다.
