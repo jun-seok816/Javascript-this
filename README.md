@@ -1,6 +1,7 @@
 # Javascript-this
-##Description
+## Description
    >javascript this binding
+## ES2016
 ```
 class MyClass {
     constructor(name : string) {
@@ -48,3 +49,56 @@ let m_f = x01.fn01;  m_f();
 m_f = x01.fn02; m_f();
 m_f = x01.fn03; m_f();
 ```
+
+## ES5
+
+```
+"use strict";
+var MyClass = /** @class */ (function () {
+    function MyClass(name) {
+        var _this = this;
+        // Class Member Variable Function
+        this.fn02 = function () {
+            console.log("Class Member Variable Function, this=" + this);
+            if (this && this.iv_name)
+                console.log('fn02', this.iv_name);
+        };
+        // Arrow Function
+        this.fn03 = function () {
+            console.log("Arrow Function this=" + _this);
+            if (_this && _this.iv_name)
+                console.log('fn03', _this.iv_name);
+        };
+        this.iv_name = name;
+    }
+    // Class Method
+    MyClass.prototype.fn01 = function () {
+        console.log("Class Method, this=" + this);
+        if (this && this.iv_name)
+            console.log('fn01', this.iv_name);
+    };
+    MyClass.iv_old = 10;
+    MyClass.fn04 = function () {
+        console.log('Static Method, ', MyClass.iv_old);
+    };
+    return MyClass;
+}());
+var x01 = new MyClass('유미');
+var x02 = new MyClass('바둑이');
+MyClass.fn04();
+x01.fn01();
+x01.fn02();
+x01.fn03();
+var m_f = x01.fn01;
+m_f();
+m_f = x01.fn02;
+m_f();
+m_f = x01.fn03;
+m_f();
+
+Customize
+```
+## f01 Function
+   f01 함수는 모든 instance 에서 공유하기 위해서 Prototype 에 생성됨 ,여기서 this는 나중에 만들어질 instance객체를 가르킴
+## f02 Function   
+   f02 함수는 Class의 Member Variable로써 
