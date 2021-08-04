@@ -2,7 +2,7 @@
 ## Description
    >javascript this binding
 ## ES2016
-```
+```javascript
 class MyClass {
     constructor(name : string) {
         this.iv_name = name;
@@ -52,7 +52,7 @@ m_f = x01.fn03; m_f();
 
 ## ES5
 
-```
+```javascript
 "use strict";
 var MyClass = /** @class */ (function () {
     function MyClass(name) {
